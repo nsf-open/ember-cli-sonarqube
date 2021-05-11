@@ -1,0 +1,46 @@
+{
+  "name": "@nsf/ember-cli-sonarqube",
+  "version": "1.0.0",
+  "description": "Sonarqube analysis integration for Ember projects.",
+	"repository": {
+		"url": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube/browse"
+	},
+  "bin": {
+    "sonar": "./sonar.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "National Science Foundation",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "execa": "^5.0.0",
+    "nopt": "^5.0.0",
+    "ora": "^5.4.0",
+    "properties-reader": "^2.2.0",
+    "sonarqube-scanner": "^2.8.0"
+  },
+  "peerDependencies": {
+    "ember-cli-code-coverage": "^1.0.3"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^2.0.1",
+    "release-it": "^14.6.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://dis-nexus.nsf.gov:8443/nexus/repository/npm-internal"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    }
+  }
+}
