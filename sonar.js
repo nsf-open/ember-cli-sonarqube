@@ -27,7 +27,7 @@ const pushMetricsToSonarqube     = require('./lib/actions/sonar-push');
 	// ----------------------------------------
 	// Prep the coverage directory
 	// ----------------------------------------
-	let spinner = startProgress('Create folder for analysis findings');
+	let spinner = startProgress('Create folder for analysis findings', config);
 	await execa('mkdir', ['-p', config.coverageFolder], { stdio: config.cmdOpts.stdioConfig });
 	spinner.succeed();
 
@@ -62,7 +62,7 @@ const pushMetricsToSonarqube     = require('./lib/actions/sonar-push');
 	// Cleanup
 	// ----------------------------------------
 	if (config.cmdOpts.cleanup !== false) {
-		spinner = startProgress('Clean Up');
+		spinner = startProgress('Clean Up', config);
 		await execa('rm', ['-rf', config.coverageFolder], { stdio: config.cmdOpts.stdioConfig });
 		spinner.succeed();
 	}
