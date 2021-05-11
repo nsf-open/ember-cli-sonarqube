@@ -2,9 +2,7 @@
   "name": "@nsf/ember-cli-sonarqube",
   "version": "1.0.0",
   "description": "Sonarqube analysis integration for Ember projects.",
-	"repository": {
-		"url": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube/browse"
-	},
+	"repository": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube",
   "bin": {
     "sonar": "./sonar.js"
   },
