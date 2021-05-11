@@ -2,22 +2,28 @@
   "name": "@nsf/ember-cli-sonarqube",
   "version": "1.0.0",
   "description": "Sonarqube analysis integration for Ember projects.",
-	"repository": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube",
+  "repository": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube",
   "bin": {
     "sonar": "./sonar.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "ember-addon"
+  ],
   "author": "National Science Foundation",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.1",
+    "ember-cli-babel": "^7.26.5",
     "execa": "^5.0.0",
+    "glob": "^7.1.7",
     "nopt": "^5.0.0",
     "ora": "^5.4.0",
     "properties-reader": "^2.2.0",
-    "sonarqube-scanner": "^2.8.0"
+    "sonarqube-scanner": "^2.8.0",
+    "xmldom": "^0.6.0"
   },
   "peerDependencies": {
     "ember-cli-code-coverage": "^1.0.3"

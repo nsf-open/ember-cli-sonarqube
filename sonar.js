@@ -28,7 +28,7 @@ const pushMetricsToSonarqube     = require('./lib/actions/sonar-push');
 	// Prep the coverage directory
 	// ----------------------------------------
 	let spinner = startProgress('Create folder for analysis findings');
-	await execa('mkdir', ['-p', `"${config.coverageFolder}"`], { stdio: config.cmdOpts.stdioConfig });
+	await execa('mkdir', ['-p', config.coverageFolder], { stdio: config.cmdOpts.stdioConfig });
 	spinner.succeed();
 
 
