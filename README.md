@@ -65,7 +65,7 @@ In the project's `testem.js` config file, add the following to your existing con
 const SonarReporter = require('@nsf/ember-cli-sonarqube/testem/sonar-reporter');
 
 module.exports = {
-  reporter: process.env.SONAR ? new SonarReporter() : 'tap',
+  reporter: process.env.SONAR ? SonarReporter : 'tap',
   report_file: process.env.SONAR_TEST_REPORT,
 }
 ```
