@@ -2,12 +2,16 @@
 const execa = require('execa');
 
 
-const { startProgress, logInfo } = require('./lib/utils/console-ui');
+const { startProgress, endProgress, logInfo } = require('./lib/utils/console-ui');
+
+const runCommand                 = require('./lib/utils/run-cmd');
 const buildSonarScriptConfig     = require('./lib/utils/config');
 const gatherESLintFindings       = require('./lib/actions/eslint');
 const gatherTemplateLintFindings = require('./lib/actions/template-lint');
 const gatherCodeCoverageMetrics  = require('./lib/actions/test-coverage');
 const pushMetricsToSonarqube     = require('./lib/actions/sonar-push');
+
+
 
 
 (async function run() {
@@ -27,9 +31,8 @@ const pushMetricsToSonarqube     = require('./lib/actions/sonar-push');
 	// ----------------------------------------
 	// Prep the coverage directory
 	// ----------------------------------------
-	let spinner = startProgress('Create folder for analysis findings', config);
-	await execa('mkdir', ['-p', config.coverageFolder], { stdio: config.cmdOpts.stdioConfig });
-	spinner.succeed();
+	let resultOrError = await runCommand('mkdir', `-p ${config.coverageFolder}`, {}, config);
+	endProgress(resultOrError);
 
 
 	// ----------------------------------------
@@ -62,9 +65,8 @@ const pushMetricsToSonarqube     = require('./lib/actions/sonar-push');
 	// Cleanup
 	// ----------------------------------------
 	if (config.cmdOpts.cleanup !== false) {
-		spinner = startProgress('Clean Up', config);
-		await execa('rm', ['-rf', config.coverageFolder], { stdio: config.cmdOpts.stdioConfig });
-		spinner.succeed();
+		resultOrError = await runCommand('rm', `-rf ${config.coverageFolder}`, {}, config);
+		endProgress(resultOrError);
 	}
 	else {
 		logInfo('Skipping Clean Up');
