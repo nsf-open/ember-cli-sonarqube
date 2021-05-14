@@ -1,3 +1,11 @@
+# [1.2.0](https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube/compare/1.1.0...1.2.0) (2021-05-14)
+
+
+### Features
+
+* improved reading of repository info from package.json for sonar-scanner ([8531137](https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube/commits/85311373ca4fdd8ebc682a24ae1799e3510d632d))
+* new --test-cmd and --token arguments ([532355c](https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube/commits/532355c6667d6483c351ce21c9aa8ae97a85cba4))
+
 # 1.1.0 (2021-05-11)
 
 
