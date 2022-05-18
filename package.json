@@ -15,22 +15,19 @@
   "author": "National Science Foundation",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^4.1.1",
-    "ember-cli-babel": "^7.26.5",
-    "execa": "^5.0.0",
-    "glob": "^7.1.7",
+    "chalk": "^4.1.2",
+    "ember-cli-babel": "^7.26.11",
+    "execa": "^5.1.1",
+    "glob": "^7.2.3",
     "nopt": "^5.0.0",
-    "ora": "^5.4.0",
+    "ora": "^5.4.1",
     "properties-reader": "^2.2.0",
-    "sonarqube-scanner": "^2.8.0",
+    "sonarqube-scanner": "^2.8.1",
     "xmldom": "^0.6.0"
-  },
-  "peerDependencies": {
-    "ember-cli-code-coverage": "^1.0.3"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^2.0.1",
-    "release-it": "^14.6.2"
+    "release-it": "^14.14.3"
   },
   "publishConfig": {
     "access": "public",
