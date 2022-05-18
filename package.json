@@ -1,47 +1,23 @@
 {
-  "name": "@nsf/ember-cli-sonarqube",
-  "version": "1.2.0",
+  "name": "@nsf/ember-cli-sonarqube-workspace",
+  "private": true,
   "description": "Sonarqube analysis integration for Ember projects.",
   "repository": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube",
-  "bin": {
-    "sonar": "./sonar.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "ember-addon"
-  ],
   "author": "National Science Foundation",
   "license": "ISC",
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "ember-cli-babel": "^7.26.11",
-    "execa": "^5.1.1",
-    "glob": "^7.2.3",
-    "nopt": "^5.0.0",
-    "ora": "^5.4.1",
-    "properties-reader": "^2.2.0",
-    "sonarqube-scanner": "^2.8.1",
-    "xmldom": "^0.6.0"
+  "workspaces": [
+    "packages/*",
+    "test-packages/*"
+  ],
+  "scripts": {
+    "test": "jest"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^2.0.1",
-    "release-it": "^14.14.3"
+    "jest": "^28.1.0"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://dis-nexus.nsf.gov:8443/nexus/repository/npm-internal"
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release v${version}"
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular",
-        "infile": "CHANGELOG.md"
-      }
-    }
+  "jest": {
+    "testMatch": [
+      "<rootDir>/test-packages/*-test.js"
+    ]
   }
 }
