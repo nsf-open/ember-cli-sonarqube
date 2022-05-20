@@ -38,5 +38,9 @@
       "packages/ember-cli-sonarqube/index.js",
       "packages/ember-cli-sonarqube/lib/**/*.js"
     ]
+  },
+  "volta": {
+    "node": "14",
+    "npm": "8"
   }
 }
