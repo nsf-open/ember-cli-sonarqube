@@ -3,29 +3,19 @@
 /**
  * Tools QUnit to provide additional testing telemetry for the Testem XML sonar-reporter.
  */
-export function setupQunitReporting() {
+export function setupQunitReporting(QUnit) {
 	// Testem's QUnit adapter merges the module and test names together with a colon (:) before passing
 	// it along as "name". If using Ember Exam, partition information may also be prepended to the name
 	// as well. Instead of trying to parse all that, this seems like a more reliable way to get at the
-	// original pieces.
-	if (typeof Testem !== 'undefined') {
-		try {
-			const QUnit = require('qunit').default;
+	// original pieces. The name of the game is to gather enough information that the original source file
+  // can be located on disk. It is far and away from an ideal solution, but given how QUnit tests are
+  // collated to be run there aren't many options.
 
-			if (QUnit) {
-				Testem.useCustomAdapter(function(socket) {
-					QUnit.testDone(function(details) {
-						socket.emit('test-metadata', 'test-result-meta', {
-							testId: details.testId,
-							module: details.module,
-							name:   details.name,
-						});
-					});
-				});
-			}
-		}
-		catch (e) {
-			// noop, not using QUnit it seems
-		}
-	}
+  if (Testem) {
+    Testem.useCustomAdapter((socket) => {
+      QUnit.testDone(
+        (details) => socket.emit('test-metadata', 'test-done', details)
+      );
+    });
+  }
 }
