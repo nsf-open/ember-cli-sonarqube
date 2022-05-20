@@ -11,7 +11,7 @@ export function setupQunitReporting(QUnit) {
   // can be located on disk. It is far and away from an ideal solution, but given how QUnit tests are
   // collated to be run there aren't many options.
 
-  if (Testem) {
+  if (window.Testem) {
     Testem.useCustomAdapter((socket) => {
       QUnit.testDone(
         (details) => socket.emit('test-metadata', 'test-done', details)
