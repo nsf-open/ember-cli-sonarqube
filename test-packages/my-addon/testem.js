@@ -1,5 +1,5 @@
 'use strict';
-const SonarReporter = require('@nsf/ember-cli-sonarqube/testem/sonar-reporter');
+const SonarReporter = require('@nsf-open/ember-cli-sonarqube/testem/sonar-reporter');
 
 module.exports = {
   test_page: 'tests/index.html?hidepassed',

@@ -1,5 +1,5 @@
 {
-  "name": "@nsf/ember-cli-sonarqube-workspace",
+  "name": "@nsf-open/ember-cli-sonarqube-workspace",
   "private": true,
   "description": "Sonarqube analysis integration for Ember projects.",
   "repository": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube",

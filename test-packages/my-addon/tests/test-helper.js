@@ -8,7 +8,7 @@ import {
   forceModulesToBeLoaded,
   sendCoverage,
 } from 'ember-cli-code-coverage/test-support';
-import { setupQunitReporting } from '@nsf/ember-cli-sonarqube/test-support';
+import { setupQunitReporting } from '@nsf-open/ember-cli-sonarqube/test-support';
 
 
 setApplication(Application.create(config.APP));

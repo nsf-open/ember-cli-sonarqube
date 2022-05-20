@@ -1,4 +1,4 @@
-@nsf/ember-cli-sonarqube
+@nsf-open/ember-cli-sonarqube
 ==============================================================================
 Sonarqube analysis integration for Ember projects.
 
@@ -6,7 +6,7 @@ Sonarqube analysis integration for Ember projects.
 Installation
 ------------------------------------------------------------------------------
 ```bash
-npm install @nsf/ember-cli-sonarqube --save-dev
+npm install @nsf-open/ember-cli-sonarqube --save-dev
 ```
 
 
@@ -62,7 +62,7 @@ In the project's `testem.js` config file, add the following to your existing con
 
 ```javascript
 // testem.js
-const SonarReporter = require('@nsf/ember-cli-sonarqube/testem/sonar-reporter');
+const { SonarReporter } = require('@nsf-open/ember-cli-sonarqube/testem');
 
 module.exports = {
   reporter: process.env.SONAR ? SonarReporter : 'tap',
@@ -74,6 +74,6 @@ If using QUnit, then in the project's `tests/test-helper.js` add the following:
 
 ```javascript
 // tests/test-helper.js
-import { setupQunitReporting } from '@nsf/ember-cli-sonarqube/test-support';
+import { setupQunitReporting } from '@nsf-open/ember-cli-sonarqube/test-support';
 setupQunitReporting();
 ```
