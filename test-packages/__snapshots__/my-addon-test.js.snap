@@ -4,4 +4,18 @@ exports[`for a fully configured addon it generates files for Sonarqube 1`] = `"[
 
 exports[`for a fully configured addon it generates files for Sonarqube 2`] = `"[{\\"filePath\\":\\"tests/dummy/app/templates/application.hbs\\",\\"messages\\":[{\\"ruleId\\":\\"no-curly-component-invocation\\",\\"severity\\":2,\\"message\\":\\"You are using the component {{moo}} with curly component syntax. You should use <Moo> instead. If it is actually a helper you must manually add it to the 'no-curly-component-invocation' rule configuration, e.g. \`'no-curly-component-invocation': { allow: ['moo'] }\`.\\",\\"line\\":5,\\"column\\":16},{\\"ruleId\\":\\"no-implicit-this\\",\\"severity\\":2,\\"message\\":\\"Ambiguous path 'moo' is not allowed. Use '@moo' if it is a named argument or 'this.moo' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['moo'] }.\\",\\"line\\":5,\\"column\\":18}],\\"errorCount\\":2,\\"warningCount\\":0}]"`;
 
-exports[`for a fully configured addon it generates files for Sonarqube 3`] = `""`;
+exports[`for a fully configured addon it generates files for Sonarqube 3`] = `
+"TN:
+SF:addon/index.js
+FN:1,sum
+FNF:1
+FNH:0
+FNDA:0,sum
+DA:2,0
+LF:1
+LH:0
+BRF:0
+BRH:0
+end_of_record
+"
+`;
