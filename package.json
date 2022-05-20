@@ -10,14 +10,33 @@
     "test-packages/*"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest --runInBand",
+    "test:coverage": "nyc --clean jest --runInBand --collectCoverage=true"
   },
   "devDependencies": {
-    "jest": "^28.1.0"
+    "execa": "^5.1.1",
+    "jest": "^28.1.0",
+    "nyc": "^15.1.0"
   },
   "jest": {
+    "collectCoverage": false,
+    "coverageReporters": [
+      "json"
+    ],
     "testMatch": [
       "<rootDir>/test-packages/*-test.js"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "tempDirectory": "./coverage",
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "include": [
+      "packages/ember-cli-sonarqube/index.js",
+      "packages/ember-cli-sonarqube/lib/**/*.js"
     ]
   }
 }

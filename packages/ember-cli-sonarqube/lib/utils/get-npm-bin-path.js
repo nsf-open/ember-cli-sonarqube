@@ -6,7 +6,7 @@ const execa = require('execa');
  *
  * @returns {string}
  */
-module.exports = function getNodeBinPath(directory = process.cwd()) {
+module.exports = function getNodeBinPath(directory) {
   const { stdout } = execa.sync('npm', ['bin'], { cwd: directory });
   return stdout;
 }

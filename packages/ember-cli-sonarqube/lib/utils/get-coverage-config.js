@@ -8,7 +8,7 @@ const { existsSync, readFileSync } = require('fs');
  *
  * @returns {{ coverageFolder: string, coverageEnvVar: string }}
  */
-module.exports = function getCoverageConfig(projectRoot = process.cwd()) {
+module.exports = function getCoverageConfig(projectRoot) {
   const pkgJson    = JSON.parse(readFileSync(join(projectRoot, 'package.json'), 'utf8'));
   const configPath = join(projectRoot, (pkgJson['ember-addon'] && pkgJson['ember-addon'].configPath) || 'config');
   const configFile = join(configPath, 'coverage.js');
