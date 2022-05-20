@@ -1,4 +1,5 @@
 'use strict';
+const SonarReporter = require('@nsf/ember-cli-sonarqube/testem/sonar-reporter');
 
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
@@ -6,6 +7,7 @@ module.exports = {
   launch_in_ci: ['Chrome'],
   launch_in_dev: ['Chrome'],
   browser_start_timeout: 120,
+  reporter: SonarReporter,
   browser_args: {
     Chrome: {
       ci: [
