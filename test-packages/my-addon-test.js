@@ -16,12 +16,9 @@ describe('for a fully configured addon', function () {
       execa('npx', ['sonar', '--dry-run', '--test-cmd="npx ember test"'], { cwd }))
     .resolves.not.toThrow();
 
-    expect(readFile(cwd, 'eslint-out.json')).toMatchSnapshot();
-    expect(readFile(cwd, 'template-lint-out.json')).toMatchSnapshot();
-    expect(readFile(cwd, 'lcov.info')).toMatchSnapshot();
-
-    // The test report contains timing information that can change run over run
-    // so snapshots are not useful here.
+    expect(readFile(cwd, 'eslint-out.json')).not.toBeFalsy();
+    expect(readFile(cwd, 'template-lint-out.json')).not.toBeFalsy();
+    expect(readFile(cwd, 'lcov.info')).not.toBeFalsy();
     expect(readFile(cwd, 'test-report.xml')).not.toBeFalsy();
   });
 });
