@@ -1,6 +1,6 @@
 {
   "name": "@nsf-open/ember-cli-sonarqube",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "Sonarqube analysis integration for Ember projects.",
   "repository": {
     "url": "https://github.com/nsf-open/ember-cli-sonarqube.git",
