@@ -1,3 +1,5 @@
+# [2.0.0-alpha.4](https://github.com/nsf-open/ember-cli-sonarqube/compare/2.0.0-alpha.3...2.0.0-alpha.4) (2022-05-23)
+
 # [2.0.0-alpha.3](https://github.com/nsf-open/ember-cli-sonarqube/compare/2.0.0-alpha.2...2.0.0-alpha.3) (2022-05-23)
 
 # [2.0.0-alpha.2](https://github.com/nsf-open/ember-cli-sonarqube/compare/2.0.0-alpha.1...2.0.0-alpha.2) (2022-05-23)
