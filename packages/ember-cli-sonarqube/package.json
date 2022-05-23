@@ -45,6 +45,10 @@
     "github": {
       "release": true
     },
+    "hooks": {
+      "before:release": "cp ../../CHANGELOG.md ./CHANGELOG.md && cp ../../README.md ./README.md",
+      "after:git:release": "git add -A && git commit -m \"chore: workspace updates for v${version}\" && git push origin HEAD"
+    },
     "plugins": {
       "@release-it/conventional-changelog": {
         "infile": "../../CHANGELOG.md",
@@ -66,10 +70,6 @@
           ]
         }
       }
-    },
-    "hooks": {
-      "before:release": "cp ../../CHANGELOG.md ./CHANGELOG.md && cp ../../README.md ./README.md",
-      "after:git:release": "git add -A && git commit -m \"chore: workspace updates for v${version}\""
     }
   }
 }
