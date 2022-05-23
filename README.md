@@ -8,13 +8,17 @@ Sonarqube analysis integration for Ember projects.
 Installation
 ------------------------------------------------------------------------------
 ```bash
+npm config set @nsf-open:registry https://npm.pkg.github.com
+```
+
+```bash
 npm install @nsf-open/ember-cli-sonarqube --save-dev
 ```
 
 
 Usage
 ------------------------------------------------------------------------------
-The highlight of this package is the `sonar` executable. Depending on what is available in the project
+This package provides the `sonar` executable. Depending on what is available in the project
 being analyzed, the following steps are taken to gather metrics:
 
 - Run `eslint`
@@ -23,17 +27,25 @@ being analyzed, the following steps are taken to gather metrics:
 - Run `sonar-scanner`
 
 ```bash
-# (Super) basic usage
-npx sonar
+npx sonar [options]
 ```
-```
-# Available CLI arguments
 
---help       (alias: -h):  Display help content.
---verbose    (alias: -v):  Attach stdio to executed commands when possible (default false).
---cleanup    (alias: -c):  Delete analysis files/folders after uploading to Sonar (default true).
---dry-run    (alias: -d):  Execute all steps except uploading to Sonar.
-```
+| Argument             | Type    | Default    | Description                                                                                                                                                                                                                                                   |
+|----------------------|---------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --help               | boolean | false      | Show help                                                                                                                                                                                                                                                     |
+| --version            | boolean | false      | Show version number                                                                                                                                                                                                                                           |
+| --cleanup            | boolean | true       | Delete analysis files after uploading.                                                                                                                                                                                                                        |
+| --verbose            | boolean | false      | Output the full results of each gathered metric.                                                                                                                                                                                                              |
+| --quiet              | boolean | false      | If true, test progression will not be logged.                                                                                                                                                                                                                 |
+| --reject             | boolean | false      | If true, the process will exit with a non-zero code if any steps failed. This allows the results to also be used as part of a pipeline or quality gate, but note that this does not fail-fast; all steps will run regardless of how the previous step exited. |
+| --test-cmd           | string  | "npm test" | The testing script that will be run to gather coverage info. This command does not need to include the `COVERAGE` environment flag needed by `ember-cli-code-coverage`.                                                                                       |
+| --sonar-url          | string  | undefined  | The URL of the Sonarqube server. If not provided by this argument, the `sonar.host.url` property will need to be set in the project's `sonar-scanner.properties` file.                                                                                        |
+| --sonar-token        | string  | undefined  | An access token for the Sonarqube server, if required.                                                                                                                                                                                                        |
+| --dry-run            | boolean | false      | If true, metrics will be gathered but not uploaded to Sonarqube.                                                                                                                                                                                              |
+| --only-analysis      | boolean | false      | If true, no new metrics will be gathered but any existing will be uploaded to Sonarqube.                                                                                                                                                                      |
+| --eslinst-args       | string  | undefined  | Additional arguments that will be passed to ESLint.                                                                                                                                                                                                           |
+| --template-lint-args | string  | undefined  | Additional arguments that will be passed to Ember Template Lint.                                                                                                                                                                                              |
+
 
 
 Environment Variables
@@ -54,11 +66,11 @@ module.exports = {
 ```
 
 
-Generic Test Data
+Generic Test Data (QUnit)
 ------------------------------------------------------------------------------
 If you'd like to record test results then this package provides a Testem reporter that outputs in the 
-[SonarQube Generic Test Data](https://docs.sonarqube.org/latest/analysis/generic-test/) format. In order 
-to use, you'll need to configure a few things.
+[SonarQube Generic Test Data](https://docs.sonarqube.org/latest/analysis/generic-test/) format. In order to use, 
+you'll need to configure a few things.
 
 In the project's `testem.js` config file, add the following to your existing configuration:
 
@@ -67,15 +79,15 @@ In the project's `testem.js` config file, add the following to your existing con
 const { SonarReporter } = require('@nsf-open/ember-cli-sonarqube/testem');
 
 module.exports = {
-  reporter: process.env.SONAR ? SonarReporter : 'tap',
-  report_file: process.env.SONAR_TEST_REPORT,
+  reporter: SonarReporter
 }
 ```
 
-If using QUnit, then in the project's `tests/test-helper.js` add the following:
+In the project's `tests/test-helper.js` add the following:
 
 ```javascript
 // tests/test-helper.js
+import * as QUnit from 'qunit';
 import { setupQunitReporting } from '@nsf-open/ember-cli-sonarqube/test-support';
-setupQunitReporting();
+setupQunitReporting(QUnit);
 ```

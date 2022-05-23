@@ -32,57 +32,61 @@ function getCliDefaults() {
     cleanup: {
       type:        'boolean',
       default:     true,
-      description: 'Delete analysis files after uploading',
+      description: 'Delete analysis files after uploading.',
     },
     verbose: {
       type:        'boolean',
       default:     false,
-      description: 'Output the full results of each gathered metric'
+      description: 'Output the full results of each gathered metric.'
     },
     quiet: {
       type:        'boolean',
       default:     false,
-      description: 'If true, test progression will not be logged',
+      description: 'If true, test progression will not be logged.',
     },
     reject: {
       type:        'boolean',
       default:     false,
-      description: 'If true, the process will exit with a non-zero exit code if any metrics steps failed',
+      description: 'If true, the process will exit with a non-zero code if any steps failed. This allows the ' +
+        'results to also be used as part of a pipeline or quality gate, but note that this does not fail-fast; all ' +
+        'steps will run regardless of how the previous step exited.',
     },
     'test-cmd': {
       type:        'string',
       default:     'npm test',
-      description: 'The script that will be run to gather metrics',
+      description: 'The testing script that will be run to gather coverage info. This command does not need to ' +
+        'include the `COVERAGE` environment flag needed by `ember-cli-code-coverage`.',
     },
     'sonar-url': {
       type:        'string',
       default:     undefined,
-      description: 'The URL of the Sonarqube server',
+      description: 'The URL of the Sonarqube server. If not provided by this argument, the `sonar.host.url` property ' +
+        'will need to be set in the project\'s `sonar-scanner.properties` file.',
     },
     'sonar-token': {
       type:        'string',
       default:     undefined,
-      description: 'An access token for the Sonarqube server',
+      description: 'An access token for the Sonarqube server, if required.',
     },
     'dry-run': {
       type:        'boolean',
       default:     false,
-      description: 'If true, metrics will be gathered but not uploaded to Sonarqube',
+      description: 'If true, metrics will be gathered but not uploaded to Sonarqube.',
     },
     'only-analysis': {
       type:        'boolean',
       default:     false,
-      description: 'If true, no new metrics will be gathered but any existing will be uploaded to Sonarqube',
+      description: 'If true, no new metrics will be gathered but any existing will be uploaded to Sonarqube.',
     },
     'eslint-args': {
       type:        'string',
       default:     undefined,
-      description: 'Additional arguments that will be passed to ESLint',
+      description: 'Additional arguments that will be passed to ESLint.',
     },
     'template-lint-args': {
       type:        'string',
       default:     undefined,
-      description: 'Additional arguments that will be passed to Ember Template Lint'
+      description: 'Additional arguments that will be passed to Ember Template Lint.'
     },
   }
 }
