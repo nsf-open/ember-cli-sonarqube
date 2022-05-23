@@ -1,8 +1,9 @@
 const { join, normalize } = require('path');
-const { getTestPackagePath, writeFile, gitReset } = require('./test-helpers');
+const { getTestPackagePath, readFile, writeFile, gitReset } = require('./test-helpers');
 const { getCliDefaults, getConfiguration } = require('@nsf-open/ember-cli-sonarqube/lib/configuration');
 const findProjectRoot = require('@nsf-open/ember-cli-sonarqube/lib/utils/find-project-root');
 const getCoverageConfig = require('@nsf-open/ember-cli-sonarqube/lib/utils/get-coverage-config');
+const convertTemplateLintFindings = require('@nsf-open/ember-cli-sonarqube/lib/utils/convert-template-lint-findings');
 
 
 describe('Utility Methods', function() {
@@ -92,7 +93,7 @@ describe('Utility Methods', function() {
       expect(coverageFolder).toEqual(getTestPackagePath('my-addon', 'coverage'));
     });
 
-    it('provides defaults if the coverage config file exists but does not provide relevant values', function () {
+    it('provides defaults if the coverage config file exists but does not provide relevant values', async function () {
       writeFile('my-addon', 'config/coverage.js', 'module.exports = { reporters: ["lcov"] };');
 
       const { coverageEnvVar, coverageFolder } = getCoverageConfig(getTestPackagePath('my-addon'));
@@ -100,7 +101,31 @@ describe('Utility Methods', function() {
       expect(coverageEnvVar).toEqual('COVERAGE');
       expect(coverageFolder).toEqual(getTestPackagePath('my-addon', 'coverage'));
 
-      gitReset('my-addon');
+      await gitReset('my-addon');
+    });
+
+    it('will return relevant values from the coverage config file', async function () {
+      writeFile(
+        'my-addon',
+        'tests/dummy/config/coverage.js',
+        'module.exports = { reporters: ["lcov"], coverageFolder: "code-coverage", coverageEnvVar: "CODE_COVERAGE" };',
+      );
+
+      const { coverageEnvVar, coverageFolder } = getCoverageConfig(getTestPackagePath('my-addon'));
+
+      expect(coverageEnvVar).toEqual('CODE_COVERAGE');
+      expect(coverageFolder).toEqual(getTestPackagePath('my-addon', 'code-coverage'));
+
+      await gitReset('my-addon');
+    });
+  });
+
+  describe('convertTemplateLintFindings', function () {
+    it('converts Ember Template Lint JSON into ESLint JSON', function () {
+      const tmplLintJson = readFile('__fixtures__', 'template-lint-example.json');
+      const convertedJson = readFile('__fixtures__', 'converted-eslint-example.json');
+
+      expect(convertTemplateLintFindings(tmplLintJson)).toEqual(convertedJson);
     });
   });
 });

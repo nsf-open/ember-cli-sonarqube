@@ -93,7 +93,7 @@ async function deleteDirectory(testPackage, directory) {
  */
 async function sonar(testPackage, commandArgs = []) {
   const cwd  = getTestPackagePath(testPackage);
-  const args = ['sonar', ...commandArgs, '--dry-run=true'];
+  const args = ['sonar', ...commandArgs, '--dry-run=true', '--quiet=true'];
 
   await execa('npx', args, { cwd, stdio: 'inherit' });
 }

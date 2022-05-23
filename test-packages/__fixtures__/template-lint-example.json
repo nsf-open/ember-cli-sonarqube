@@ -1,0 +1,27 @@
+{
+  "tests/dummy/app/templates/application.hbs": [
+    {
+      "rule": "no-curly-component-invocation",
+      "severity": 2,
+      "filePath": "tests/dummy/app/templates/application.hbs",
+      "line": 3,
+      "column": 16,
+      "endLine": 3,
+      "endColumn": 23,
+      "source": "{{moo}}",
+      "message": "You are using the component {{moo}} with curly component syntax. You should use <Moo> instead. If it is actually a helper you must manually add it to the 'no-curly-component-invocation' rule configuration, e.g. `'no-curly-component-invocation': { allow: ['moo'] }`.",
+      "isFixable": false
+    },
+    {
+      "rule": "no-implicit-this",
+      "severity": 2,
+      "filePath": "tests/dummy/app/templates/application.hbs",
+      "line": 3,
+      "column": 18,
+      "endLine": 3,
+      "endColumn": 21,
+      "source": "moo",
+      "message": "Ambiguous path 'moo' is not allowed. Use '@moo' if it is a named argument or 'this.moo' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['moo'] }."
+    }
+  ]
+}
