@@ -10,7 +10,8 @@
     "sonar": "./sonar.js"
   },
   "scripts": {
-    "test": "echo \"Tests are specificed at the workspace level\" && exit 0"
+    "test": "echo \"Tests are specificed at the workspace level\" && exit 0",
+    "release": "release-it"
   },
   "keywords": [
     "ember-addon"
@@ -39,6 +40,9 @@
   "release-it": {
     "git": {
       "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
     },
     "plugins": {
       "@release-it/conventional-changelog": {

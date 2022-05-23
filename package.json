@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "test": "jest --runInBand",
-    "test:coverage": "nyc --clean jest --runInBand --collectCoverage=true"
+    "test:coverage": "nyc --clean jest --runInBand --collectCoverage=true",
+    "release": "npm run release -w @nsf-open/ember-cli-sonarqube"
   },
   "devDependencies": {
     "execa": "^5.1.1",
