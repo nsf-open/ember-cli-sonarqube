@@ -53,8 +53,8 @@
       }
     },
     "hooks": {
-      "after:git:release": "git commit -m \"chore: workspace updates for v${version}\" && git push origin HEAD",
-      "before:release": "cp ../../CHANGELOG.md ./CHANGELOG.md && cp ../../README.md ./README.md && git add ."
+      "before:release": "cp ../../CHANGELOG.md ./CHANGELOG.md && cp ../../README.md ./README.md",
+      "before:git:release": "git add -A && git commit -m \"chore: workspace updates for v${version}\""
     }
   }
 }
