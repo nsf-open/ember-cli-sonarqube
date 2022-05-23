@@ -40,7 +40,6 @@
   "release-it": {
     "git": {
       "commitMessage": "chore: release v${version}",
-      "requireCleanWorkingDir": false,
       "addUntrackedFiles": true
     },
     "github": {
@@ -48,13 +47,29 @@
     },
     "plugins": {
       "@release-it/conventional-changelog": {
-        "preset": "angular",
-        "infile": "../../CHANGELOG.md"
+        "infile": "../../CHANGELOG.md",
+        "preset": {
+          "name": "angular",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "chore",
+              "section": "Chores"
+            }
+          ]
+        }
       }
     },
     "hooks": {
       "before:release": "cp ../../CHANGELOG.md ./CHANGELOG.md && cp ../../README.md ./README.md",
-      "before:git:release": "git add -A && git commit -m \"chore: workspace updates for v${version}\""
+      "after:git:release": "git add -A && git commit -m \"chore: workspace updates for v${version}\""
     }
   }
 }
