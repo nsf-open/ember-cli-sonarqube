@@ -1,3 +1,13 @@
+## [2.0.0-alpha.5](https://github.com/nsf-open/ember-cli-sonarqube/compare/2.0.0-alpha.4...v2.0.0-alpha.5) (2022-05-23)
+
+
+### Chores
+
+* change to conventional commits CHANGELOG preset ([9d04475](https://github.com/nsf-open/ember-cli-sonarqube/commit/9d04475d297bbf15e7f549546cdf1687003d0166))
+* reverse direction of CHANGELOG and README copying ([edb0472](https://github.com/nsf-open/ember-cli-sonarqube/commit/edb0472a6fab8392f2a545b62b2e9597ebe00b23))
+* tweak release-it tagging to start names with "v" ([17ba2b2](https://github.com/nsf-open/ember-cli-sonarqube/commit/17ba2b29c77c2b8d1c2c85ad22d7ef6f2e3aae88))
+* workspace updates for v2.0.0-alpha.4 ([966574e](https://github.com/nsf-open/ember-cli-sonarqube/commit/966574e1e1be25cd15b7758357d482b700e8328c))
+
 # [2.0.0-alpha.4](https://github.com/nsf-open/ember-cli-sonarqube/compare/2.0.0-alpha.3...2.0.0-alpha.4) (2022-05-23)
 
 # [2.0.0-alpha.3](https://github.com/nsf-open/ember-cli-sonarqube/compare/2.0.0-alpha.2...2.0.0-alpha.3) (2022-05-23)
