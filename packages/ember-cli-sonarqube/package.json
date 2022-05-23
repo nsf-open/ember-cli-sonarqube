@@ -39,7 +39,9 @@
   },
   "release-it": {
     "git": {
-      "commitMessage": "chore: release v${version}"
+      "commitMessage": "chore: release v${version}",
+      "requireCleanWorkingDir": false,
+      "addUntrackedFiles": true
     },
     "github": {
       "release": true
@@ -49,6 +51,9 @@
         "preset": "angular",
         "infile": "../../CHANGELOG.md"
       }
+    },
+    "hooks": {
+      "before:release": "cp ../../CHANGELOG.md ./CHANGELOG.md && cp ../../README.md ./README.md && git add ."
     }
   }
 }
