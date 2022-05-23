@@ -25,6 +25,7 @@
     "glob": "^7.2.3",
     "ora": "^5.4.1",
     "properties-reader": "^2.2.0",
+    "rimraf": "^3.0.2",
     "sonarqube-scanner": "^2.8.1",
     "xmldom": "^0.6.0",
     "yargs": "^17.5.1"

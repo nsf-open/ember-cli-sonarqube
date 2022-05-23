@@ -4,6 +4,7 @@ const yargs = require('yargs/yargs');
 const findProjectRoot = require('./lib/utils/find-project-root');
 const gatherMetrics = require('./lib/gather-metrics');
 const reportMetrics = require('./lib/report-metrics');
+const cleanup = require('./lib/cleanup');
 const assert = require('./lib/utils/assert');
 const { hideBin } = require('yargs/helpers');
 const { getCliDefaults, getConfiguration } = require('./lib/configuration');
@@ -31,6 +32,7 @@ const config = getConfiguration(projectRoot, args);
   }
 
   await reportMetrics(config);
+  await cleanup(config);
 
   if (config.reject && metricsError) {
     process.exitCode = metricsError.code;

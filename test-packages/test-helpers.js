@@ -57,6 +57,33 @@ function writeFile(testPackage, fileName, contents) {
 }
 
 /**
+ * @param {string} testPackage
+ * @param {string} fileName
+ * @param {string} newContents
+ * @param {{ searchTerm?: string, replace?: boolean }} [options]
+ *
+ * @returns {void}
+ */
+function updateFile(testPackage, fileName, newContents, { searchTerm = undefined, replace = false } = {}) {
+  let fileContent = readFile(testPackage, fileName);
+
+  if (searchTerm) {
+    if (replace) {
+      fileContent.replace(searchTerm, newContents);
+    }
+    else {
+      const idx = fileContent.indexOf(searchTerm) + searchTerm.length;
+      fileContent = fileContent.substring(0, idx) + '\n' + newContents + fileContent.substring(idx);
+    }
+  }
+  else {
+    fileContent += '\n' + newContents;
+  }
+
+  writeFile(testPackage, fileName, fileContent);
+}
+
+/**
  * Runs git clean and git restore against the provided test addon.
  *
  * @param {string} testPackage The name of the test addon.
@@ -89,19 +116,20 @@ async function deleteDirectory(testPackage, directory) {
  * @param {string} testPackage     The name of the test addon.
  * @param {string[]} [commandArgs] Additional arguments for the command.
  *
- * @returns {Promise<void>}
+ * @returns {execa.ExecaChildProcess}
  */
-async function sonar(testPackage, commandArgs = []) {
+function sonar(testPackage, commandArgs = []) {
   const cwd  = getTestPackagePath(testPackage);
-  const args = ['sonar', ...commandArgs, '--dry-run=true', '--quiet=true'];
+  const args = ['sonar', ...commandArgs, '--dry-run=true'];
 
-  await execa('npx', args, { cwd, stdio: 'inherit' });
+  return execa('npx', args, { cwd });
 }
 
 module.exports = {
   getTestPackagePath,
   readFile,
   writeFile,
+  updateFile,
   gitReset,
   deleteDirectory,
   sonar,

@@ -168,8 +168,8 @@ function getConfiguration(projectRoot, cliArgs) {
   const defaults = getCliDefaults();
 
   Object.keys(defaults).forEach((key) => {
-    if (!(key in config) || config[key] === undefined) {
-      config[key] = (cliArgs && cliArgs[key]) || defaults[key].default;
+    if (config[key] === undefined) {
+      config[key] = cliArgs && cliArgs[key] !== undefined ? cliArgs[key] : defaults[key].default;
     }
   });
 
