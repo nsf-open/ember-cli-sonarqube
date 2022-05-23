@@ -9,11 +9,4 @@ module('Acceptance | index', function (hooks) {
     await visit('/');
     assert.strictEqual(currentURL(), '/');
   });
-
-  module('More Acceptance | index', function () {
-    test('another visit to /index', async function (assert) {
-      await visit('/foo');
-      assert.strictEqual(currentURL(), '/');
-    });
-  });
 });
