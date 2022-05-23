@@ -2,7 +2,7 @@
   "name": "@nsf-open/ember-cli-sonarqube-workspace",
   "private": true,
   "description": "Sonarqube analysis integration for Ember projects.",
-  "repository": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube",
+  "repository": "https://github.com/nsf-open/ember-cli-sonarqube.git",
   "author": "National Science Foundation",
   "license": "ISC",
   "workspaces": [

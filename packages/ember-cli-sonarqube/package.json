@@ -2,12 +2,15 @@
   "name": "@nsf-open/ember-cli-sonarqube",
   "version": "1.2.0",
   "description": "Sonarqube analysis integration for Ember projects.",
-  "repository": "https://bitbucket.nsf.gov/projects/NSF-FE/repos/ember-cli-sonarqube",
+  "repository": {
+    "url": "https://github.com/nsf-open/ember-cli-sonarqube.git",
+    "directory": "packages/ember-cli-sonarqube"
+  },
   "bin": {
     "sonar": "./sonar.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Tests are specificed at the workspace level\" && exit 0"
   },
   "keywords": [
     "ember-addon"
@@ -31,8 +34,7 @@
     "release-it": "^14.14.3"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://dis-nexus.nsf.gov:8443/nexus/repository/npm-internal"
+    "registry":"https://npm.pkg.github.com"
   },
   "release-it": {
     "git": {
