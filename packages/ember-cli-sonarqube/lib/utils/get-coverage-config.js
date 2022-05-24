@@ -1,5 +1,6 @@
 const { join, normalize } = require('path');
 const { existsSync, readFileSync } = require('fs');
+const assert = require('./assert');
 
 /**
  * Read the ember-cli-code-coverage config for the project containing information
@@ -20,12 +21,11 @@ module.exports = function getCoverageConfig(projectRoot) {
     const config    = require(configFile);
     const reporters = config.reporters;
 
-    // The default config for ember-cli-code-coverage includes the lcov reporter by default.
-    // This checks to ensure it is present if the reporters have been customized.
-    if (Array.isArray(reporters) && !(reporters.includes('lcov') || reporters.includes('lcov-only'))) {
-      // TODO: come up with a more useful error message
-      // throw new Error('The ember-cli-code-coverage lcov reporter must be configured for Sonar reporting.');
-    }
+    assert(
+      'In order for ember-cli-sonarqube to work, ember-cli-code-coverage ' +
+      'must be configured with either the `lcov` or `lcov-only` reporter.',
+      Array.isArray(reporters) && !(reporters.includes('lcov') || reporters.includes('lcov-only'))
+    );
 
     const mixedConfig = Object.assign({ coverageEnvVar, coverageFolder }, config);
     coverageEnvVar    = mixedConfig.coverageEnvVar;
