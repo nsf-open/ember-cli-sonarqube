@@ -1,3 +1,11 @@
+## [2.0.0](https://github.com/nsf-open/ember-cli-sonarqube/compare/v2.0.0-alpha.5...v2.0.0) (2022-05-24)
+
+
+### Chores
+
+* linting ([4d1c99a](https://github.com/nsf-open/ember-cli-sonarqube/commit/4d1c99a7be47541ed99ec365f76ebcf61598d1cf))
+* template-lint conversion creates absolute file path ([d301ac9](https://github.com/nsf-open/ember-cli-sonarqube/commit/d301ac9567dff15e705a00f3d7a8c3f53a2bd95e))
+
 ## [2.0.0-alpha.5](https://github.com/nsf-open/ember-cli-sonarqube/compare/2.0.0-alpha.4...v2.0.0-alpha.5) (2022-05-23)
 
 
