@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/nsf-open/ember-cli-sonarqube/badge.svg?branch=main)](https://coveralls.io/github/nsf-open/ember-cli-sonarqube?branch=main)
+
 @nsf-open/ember-cli-sonarqube
 ==============================================================================
 Sonarqube analysis integration for Ember projects.
