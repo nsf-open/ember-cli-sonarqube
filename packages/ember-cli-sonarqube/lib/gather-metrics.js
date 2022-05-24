@@ -44,7 +44,7 @@ module.exports = async function gatherProjectMetrics(config) {
     const log = logProgress('Getting TemplateLint Report', `npx ${config.tmplLintArgs.join(' ')}`);
     const { stdout, exitCode } = await execa('npx', config.tmplLintArgs, execaOptions);
 
-    fs.writeFileSync(config.tmplLintOut, convertLintOut(stdout || '[]'), 'utf8');
+    fs.writeFileSync(config.tmplLintOut, convertLintOut(config.projectRoot, stdout || '[]'), 'utf8');
 
     log.finish(exitCode, config.reject);
     tmplLintExitCode = exitCode;

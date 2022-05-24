@@ -171,7 +171,7 @@ describe('Utility Methods', function() {
       const tmplLintJson = readFile('__fixtures__', 'template-lint-example.json');
       const convertedJson = readFile('__fixtures__', 'converted-eslint-example.json');
 
-      expect(convertTemplateLint(tmplLintJson)).toEqual(convertedJson);
+      expect(convertTemplateLint('/foo/bar', tmplLintJson)).toEqual(convertedJson);
     });
   });
 });

@@ -1,11 +1,14 @@
+const { join } = require('path');
+
 /**
  * Rewrites the JSON of ember-template-lint into ESLint formatted JSON so
  * that it can be read by Sonar.
  *
- * @param  {string} jsonString
+ * @param {string} projectRoot
+ * @param {string} jsonString
  * @returns {string}
  */
-module.exports = function convertTemplateLintFinding(jsonString) {
+module.exports = function convertTemplateLintFinding(projectRoot, jsonString) {
   const contents = JSON.parse(jsonString);
   const results  = [];
 
@@ -13,7 +16,7 @@ module.exports = function convertTemplateLintFinding(jsonString) {
     const original = contents[key];
     const updated  = {};
 
-    updated.filePath     = key;
+    updated.filePath     = join(projectRoot, key);
     updated.messages     = [];
     updated.errorCount   = original.filter(item => item.severity === 2).length;
     updated.warningCount = original.filter(item => item.severity === 1).length;
