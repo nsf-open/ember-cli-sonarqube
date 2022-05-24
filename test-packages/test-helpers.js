@@ -1,6 +1,7 @@
 const execa = require("execa");
 const { join } = require('path');
 const { readFileSync, writeFileSync } = require('fs');
+const rimraf = require('rimraf');
 
 /**
  * Put together an absolute path to the named test addon.
@@ -84,6 +85,14 @@ function updateFile(testPackage, fileName, newContents, { searchTerm = undefined
 }
 
 /**
+ * @param {string} testPackage
+ * @param {string} fileName
+ */
+function deleteFile(testPackage, fileName) {
+  rimraf.sync(getTestPackagePath(testPackage, fileName));
+}
+
+/**
  * Runs git clean and git restore against the provided test addon.
  *
  * @param {string} testPackage The name of the test addon.
@@ -130,6 +139,7 @@ module.exports = {
   readFile,
   writeFile,
   updateFile,
+  deleteFile,
   gitReset,
   deleteDirectory,
   sonar,

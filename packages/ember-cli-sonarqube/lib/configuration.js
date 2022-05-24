@@ -14,7 +14,7 @@ const propertiesReader = require('properties-reader');
  * @returns {string[]}
  */
 function parseAndMergeCommandArgs(prefix, maybeMerge, suffix = []) {
-  const cmdArgs = Array.isArray(prefix) ? prefix : [];
+  const cmdArgs = [...prefix];
 
   if (typeof maybeMerge === 'string') {
     cmdArgs.push(...parseCommand(maybeMerge));
@@ -26,6 +26,8 @@ function parseAndMergeCommandArgs(prefix, maybeMerge, suffix = []) {
 
 /**
  * Default CLI parameters, in the style of a Yargs options object.
+ *
+ * @returns {Record<string, { type: string, default: unknown, description: string }>}
  */
 function getCliDefaults() {
   return {
@@ -168,9 +170,7 @@ function getConfiguration(projectRoot, cliArgs) {
   const defaults = getCliDefaults();
 
   Object.keys(defaults).forEach((key) => {
-    if (config[key] === undefined) {
-      config[key] = cliArgs && cliArgs[key] !== undefined ? cliArgs[key] : defaults[key].default;
-    }
+    config[key] = cliArgs && cliArgs[key] !== undefined ? cliArgs[key] : defaults[key].default;
   });
 
   config['test-cmd'] = parseAndMergeCommandArgs([], config['test-cmd']);
