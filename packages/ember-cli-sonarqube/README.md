@@ -8,10 +8,6 @@ Sonarqube analysis integration for Ember projects.
 Installation
 ------------------------------------------------------------------------------
 ```bash
-npm config set @nsf-open:registry https://npm.pkg.github.com
-```
-
-```bash
 npm install @nsf-open/ember-cli-sonarqube --save-dev
 ```
 
