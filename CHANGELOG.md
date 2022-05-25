@@ -1,3 +1,11 @@
+### [2.0.1](https://github.com/nsf-open/ember-cli-sonarqube/compare/v2.0.0...v2.0.1) (2022-05-25)
+
+
+### Chores
+
+* move to npmjs registry ([784d490](https://github.com/nsf-open/ember-cli-sonarqube/commit/784d490bc57fcb95d21c238da73c22b9b8d176f9))
+* remove GitHub registry instructions from README ([1557844](https://github.com/nsf-open/ember-cli-sonarqube/commit/15578445083f4ea019b2efe76df0d2c522a68d0a))
+
 ## [2.0.0](https://github.com/nsf-open/ember-cli-sonarqube/compare/v2.0.0-alpha.5...v2.0.0) (2022-05-24)
 
 
