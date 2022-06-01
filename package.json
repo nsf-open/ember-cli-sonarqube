@@ -15,9 +15,9 @@
     "release": "npm run release -w @nsf-open/ember-cli-sonarqube"
   },
   "devDependencies": {
-    "execa": "^5.1.1",
-    "jest": "^28.1.0",
-    "nyc": "^15.1.0"
+    "execa": "5.1.1",
+    "jest": "28.1.0",
+    "nyc": "15.1.0"
   },
   "jest": {
     "collectCoverage": false,
