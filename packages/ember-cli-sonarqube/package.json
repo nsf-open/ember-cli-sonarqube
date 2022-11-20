@@ -34,7 +34,7 @@
     "yargs": "17.5.1"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "2.0.1",
+    "@release-it/conventional-changelog": "5.1.1",
     "@types/yargs": "17.0.10",
     "release-it": "14.14.3"
   },
