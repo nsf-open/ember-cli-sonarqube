@@ -10,9 +10,14 @@ const logProgress = require('./utils/log-progress');
 function getSonarConfiguration(config) {
   const pkgJson = JSON.parse(fs.readFileSync(path.join(config.projectRoot, 'package.json'), 'utf8'));
 
-  const sources = (Array.isArray(pkgJson.keywords) && pkgJson.keywords.includes('ember-addon'))
+  let sources = (Array.isArray(pkgJson.keywords) && pkgJson.keywords.includes('ember-addon'))
     ? 'addon,addon-test-support,public'
     : 'app,public';
+
+  sources = sources
+    .split(',')
+    .filter((src) => fs.existsSync(path.join(config.projectRoot, src)))
+    .join(',');
 
   const executionReport = fs.existsSync(config.reporterOut) ? config.reporterOut : undefined;
 
@@ -83,3 +88,5 @@ module.exports = function reportSonarMetrics(config) {
     sonarqubeScanner(sonarConfig, resolve);
   });
 }
+
+module.exports.getSonarConfiguration = getSonarConfiguration;
