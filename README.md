@@ -1,5 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/nsf-open/ember-cli-sonarqube/badge.svg?branch=main&_=1)](https://coveralls.io/github/nsf-open/ember-cli-sonarqube?branch=main)
-[![npm version](https://badge.fury.io/js/@nsf-open%2Fember-cli-sonarqube.svg)](https://badge.fury.io/js/@nsf-open%2Fember-cli-sonarqube)
+[![Coverage Status](https://coveralls.io/repos/github/nsf-open/ember-cli-sonarqube/badge.svg?branch=main)](https://coveralls.io/github/nsf-open/ember-cli-sonarqube?branch=main)
 
 @nsf-open/ember-cli-sonarqube
 ==============================================================================

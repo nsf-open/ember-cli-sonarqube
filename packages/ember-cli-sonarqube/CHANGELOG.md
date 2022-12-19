@@ -1,3 +1,29 @@
+### [2.0.2](https://github.com/nsf-open/ember-cli-sonarqube/compare/v2.0.1...v2.0.2) (2022-12-19)
+
+
+### Bug Fixes
+
+* filter Sonar config "sources" list to only include directories that exist ([217e40e](https://github.com/nsf-open/ember-cli-sonarqube/commit/217e40ebae75e7e72f866861869b04922b37610a))
+
+
+### Chores
+
+* **deps:** add renovate.json ([9758c4a](https://github.com/nsf-open/ember-cli-sonarqube/commit/9758c4a4a54913e0129eab7176dc6f3ed3e959e5))
+* **deps:** bump trim-off-newlines from 1.0.1 to 1.0.3 ([c00b5d6](https://github.com/nsf-open/ember-cli-sonarqube/commit/c00b5d673acf6925222f15409608215669f4ac4b))
+* **deps:** pin dependencies ([3733a07](https://github.com/nsf-open/ember-cli-sonarqube/commit/3733a076027eb2a3265db7e8bb8623bf838ff99b))
+* **deps:** pin dependencies ([1d8ccff](https://github.com/nsf-open/ember-cli-sonarqube/commit/1d8ccffef2b1a2603192819eb732ab1c26bc9e93))
+* **deps:** update actions/checkout action to v3 ([6367e95](https://github.com/nsf-open/ember-cli-sonarqube/commit/6367e95a876956bb7ed7f27971d9867df8ec98b8))
+* **deps:** update dependency @ember/test-helpers to v2.8.1 ([821871f](https://github.com/nsf-open/ember-cli-sonarqube/commit/821871fdd65fd3b6da3da21b426e50f71c41d918))
+* **deps:** update dependency @embroider/test-setup to v1.8.3 ([58af70b](https://github.com/nsf-open/ember-cli-sonarqube/commit/58af70b2c60fb617c28a239893a2c4e5d127ab12))
+* **deps:** update dependency ember-auto-import to v2.4.2 ([b700c6c](https://github.com/nsf-open/ember-cli-sonarqube/commit/b700c6cd86291c868e88cdbcb2bf525b2a9ef3f9))
+* **deps:** update dependency ember-cli to v4.8.0 ([f875922](https://github.com/nsf-open/ember-cli-sonarqube/commit/f875922889c6b9103fed26193670a550d72d9b73))
+* **deps:** update dependency ember-source to v4.8.2 ([8e42de1](https://github.com/nsf-open/ember-cli-sonarqube/commit/8e42de1163a0c87b25efa3f8ec9b5938e92f41a0))
+* **deps:** update dependency ember-template-lint to v4.18.2 ([da2f233](https://github.com/nsf-open/ember-cli-sonarqube/commit/da2f23352882b95f5db6a9980dbb54de90a6c502))
+* **deps:** update dependency eslint to v8 ([9da32a4](https://github.com/nsf-open/ember-cli-sonarqube/commit/9da32a40380e119bd8ae290292a89de6913ffd61))
+* **deps:** update dependency npm to v8.11.0 ([1118818](https://github.com/nsf-open/ember-cli-sonarqube/commit/1118818f4276f8ebec12ebcec4b55b214270ab0d))
+* **deps:** update dependency release-it to v15 ([6ce5e16](https://github.com/nsf-open/ember-cli-sonarqube/commit/6ce5e1666acb06f679a7215dd1ab1d80b15359a8))
+* **deps:** update node.js to v14.19.3 ([7b2f8d4](https://github.com/nsf-open/ember-cli-sonarqube/commit/7b2f8d4bc9efd5b86e6fbb8fa4a5216c8f266652))
+
 ### [2.0.1](https://github.com/nsf-open/ember-cli-sonarqube/compare/v2.0.0...v2.0.1) (2022-05-25)
 
 
